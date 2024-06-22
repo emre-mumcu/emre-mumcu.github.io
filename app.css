@@ -1,0 +1,118 @@
+﻿body {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+pre {
+    border-radius: 10px;
+}
+
+p.head1 {
+    color: rgb(32, 34, 32);
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: 600;
+    font-size: 56px;
+    padding: 40px;
+    margin: auto;
+}
+
+p.head2 {
+    color: rgb(32, 34, 32);
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: 600;
+    font-size: 56px;
+    margin: auto;
+}
+
+p.sub1 {
+    color: rgb(32, 34, 32);
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;  
+    margin: auto;    
+}
+
+p.sub2 {
+    color: rgb(32, 34, 32);
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 40px;
+    margin: auto;
+    /*text-align: left;*/
+    padding-top:25px;
+}
+
+a.bbutton1 {
+    background-color: rgb(32, 34, 32);
+    color: rgb(246, 246, 246);
+    cursor: pointer;
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 16px 32px;
+    border-radius: 5px;
+    text-decoration-color: rgb(246, 246, 246);
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    display: inline-block;
+}
+
+p.card-title {
+    color: rgb(32, 34, 32);
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 38px;
+    margin-block-start: 24px;
+}
+
+p.card-text {
+    color: rgb(32, 34, 32);
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    margin-block-start: 24px;
+}
+
+p.black-title {
+    color: rgb(246, 246, 246);
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 44px;
+    margin-block-start: 20px;
+}
+
+p.black-text {
+    color: rgb(246, 246, 246);    
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    margin-block-start: 24px;
+}
+
+hr.sep1 {
+    opacity: 1;
+    margin: auto;
+    color: rgb(246, 246, 246);
+    width: 100px;
+    border-top: 3px solid white;
+    margin-block-start: 40px;
+    margin-block-end: 40px;
+}
+
+p.footer {
+    color: rgb(32, 34, 32);
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 30px;
+    margin: auto;
+}
+
+a.nav-link-bg:hover {
+    background-color: hsl(0, 0%, 10%);
+}
