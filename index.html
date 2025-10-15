@@ -284,7 +284,7 @@
                     </div>
 
                     <div class="col-4 text-center">
-                        <span style="color: red;">❤️</span>
+                        <span style="color: red; cursor: pointer;" onclick="MyLove();" >❤️</span>
                     </div>
 
                     <div class="col-4 text-end">
@@ -325,10 +325,25 @@
         </div>
     </div>
 
+    <div class="modal fade" id="MyLoveModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div id="ModalContent1"></div>
+                    <div id="ModalContent2"></div>
+                    <div id="ModalContent3"></div>
+                    <div id="ModalContent4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
 
 
     <script>
@@ -372,6 +387,47 @@
                 });
         }
 
+    </script>
+
+    <script src="web_crypto3.js"></script>
+
+    <script>
+        // do NOT open this file as file://...
+        // use node.js to serve
+        // npx serve
+        async function MyLove() {
+
+            try {                
+
+                const secretKey = prompt("İçeriği görmek için:");
+
+                const response = await fetch("/mylove.json");
+
+                if (!response.ok) {
+                    alert("❌ Failed to load static file.");
+                    return;
+                }
+
+                const data = await response.json();
+
+                document.getElementById('ModalContent1').innerHTML = await decryptText(data.item4, secretKey);
+                document.getElementById('ModalContent2').innerHTML = await decryptText(data.item1, secretKey);
+                document.getElementById('ModalContent3').innerHTML = await decryptText(data.item2, secretKey);
+                document.getElementById('ModalContent4').innerHTML = await decryptText(data.item3, secretKey);
+
+                const myModal = new bootstrap.Modal('#MyLoveModal', {
+                    keyboard: false,
+                    focus: true,
+                    backdrop: 'static'
+                });
+
+                myModal.show();
+
+            } catch (err) {
+                console.log(err);
+                alert(err);
+            }            
+        }
     </script>
 
 </body>

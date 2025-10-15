@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Encrypt Text Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f6f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 800px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        textarea {
+            width: 100%;            
+            padding: 10px 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        textarea {
+            height: 350px;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        pre {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 8px;
+            max-height: 200px;
+            overflow: auto;
+            font-size: 13px;
+
+            white-space: pre-wrap;         /* preserve newlines and wrap lines */
+            word-break: break-all;         /* break long words if necessary */
+            overflow-wrap: anywhere;       /* modern alternative, wraps anywhere */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h2>Text Encryptor</h2>
+
+        <label for="input1">Encryption Key</label>
+        <input type="password" id="password" placeholder="Enter any 256 bit key">
+
+        <label for="input2">Plain Text</label>
+        <textarea id="plaintext" placeholder="Enter text to encrypt"></textarea>        
+
+        <button onclick="encryptTexts()">Encrypt</button>
+
+        <pre id="output"></pre>
+    </div>
+
+    <script src="web_crypto3.js"></script>
+    <script>
+        async function encryptTexts() {
+
+            try {
+                
+                const text1 = document.getElementById("plaintext").value;
+                const password = document.getElementById("password").value;
+                const output = document.getElementById("output");
+
+                if (!text1) {
+                    output.textContent = "Please enter some text.";
+                    return;
+                }
+
+                if (!password) {
+                    output.textContent = "Please enter a password.";
+                    return;
+                }               
+
+                var encText = await encryptText(text1, password);
+
+                output.textContent = encText;
+
+                await navigator.clipboard.writeText(encText);                
+            } catch (err) {
+                // console.error(err);
+                alert(err);
+            }
+        }
+    </script>
+</body>
+
+</html>
