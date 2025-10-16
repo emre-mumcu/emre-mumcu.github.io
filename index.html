@@ -330,10 +330,11 @@
             <div class="modal-content">
                 <div class="modal-body text-center">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div id="ModalContent0"></div>
                     <div id="ModalContent1"></div>
-                    <div id="ModalContent2"></div>
-                    <div id="ModalContent3"></div>
                     <div id="ModalContent4"></div>
+                    <div id="ModalContent2"></div>
+                    <div id="ModalContent3"></div>                    
                 </div>
             </div>
         </div>
@@ -410,10 +411,11 @@
 
                 const data = await response.json();
 
-                document.getElementById('ModalContent1').innerHTML = await decryptText(data.item4, secretKey);
-                document.getElementById('ModalContent2').innerHTML = await decryptText(data.item1, secretKey);
-                document.getElementById('ModalContent3').innerHTML = await decryptText(data.item2, secretKey);
-                document.getElementById('ModalContent4').innerHTML = await decryptText(data.item3, secretKey);
+                document.getElementById('ModalContent0').innerHTML = await decryptText(data.item0, secretKey);
+                document.getElementById('ModalContent1').innerHTML = await decryptText(data.item1, secretKey);
+                document.getElementById('ModalContent2').innerHTML = await decryptText(data.item2, secretKey);
+                document.getElementById('ModalContent3').innerHTML = await decryptText(data.item3, secretKey);
+                document.getElementById('ModalContent4').innerHTML = await decryptText(data.item4, secretKey);                
 
                 const myModal = new bootstrap.Modal('#MyLoveModal', {
                     keyboard: false,
