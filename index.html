@@ -390,7 +390,7 @@
 
     </script>
 
-    <script src="web_crypto3.js"></script>
+    <script src="web_crypto3.js"></script>    
 
     <script>
         // do NOT open this file as file://...
@@ -431,6 +431,15 @@
                 alert(err);
             }            
         }
+
+        /*
+            The browser blocks many things under file:// due to security restrictions (CORS policy). Common culprits:
+                fetch() / XMLHttpRequest — blocked entirely
+                ES modules (type="module") — don't work
+                Loading local JSON/assets — blocked
+            Any of these will work fine once you're on http://localhost.
+            Recommendation: Go with npx serve . — it's the fastest, requires nothing installed, and just works.
+        */
     </script>
 
 </body>
